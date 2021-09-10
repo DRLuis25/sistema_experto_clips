@@ -35,10 +35,7 @@
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="nombre">Nombres:</label>
                                                 <div class="col-md-7">
-                                                    <input type="text" id="nombre" name="nombre" class="form-control input-sm @error('nombre') is-invalid @enderror">
-                                                    @error('nombre')
-                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
-                                                    @enderror
+                                                    <input type="text" id="nombre" name="nombre" class="form-control input-sm">
                                                 </div>
                                             </div>
                                         </div>
@@ -47,10 +44,7 @@
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="apellido">Apellidos:</label>
                                                 <div class="col-md-7">
-                                                    <input type="text" id="apellido" name="apellido" class="form-control input-sm @error('apellido') is-invalid @enderror">
-                                                    @error('apellido')
-                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
-                                                    @enderror
+                                                    <input type="text" id="apellido" name="apellido" class="form-control input-sm">
                                                 </div>
                                             </div>
                                         </div>
@@ -72,10 +66,7 @@
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="edad">Edad:</label>
                                                 <div class="col-md-7">
-                                                    <input type="number" min="1" pattern="^[0-9]+" id="edad" name="edad" class="form-control input-sm @error('edad') is-invalid @enderror">
-                                                    @error('edad')
-                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
-                                                    @enderror
+                                                    <input type="number" min="1" pattern="^[0-9]+" id="edad" name="edad" class="form-control input-sm">
                                                 </div>
                                             </div>
                                         </div>
@@ -84,10 +75,7 @@
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="ciudad">Ciudad:</label>
                                                 <div class="col-md-7">
-                                                    <input type="text" id="ciudad" name="ciudad" class="form-control input-sm @error('ciudad') is-invalid @enderror">
-                                                    @error('ciudad')
-                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
-                                                    @enderror
+                                                    <input type="text" id="ciudad" name="ciudad" class="form-control input-sm">
                                                 </div>
                                             </div>
                                         </div>    
