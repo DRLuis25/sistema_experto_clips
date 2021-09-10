@@ -2,11 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Diagnostico Médico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    <title>Sistema Experto</title>
 </head>
-<body>
-<form action="">
-    <input type="submit" value="Consultar">
-</form>
+<body style="background: lightblue">
+
+    <div style="text-align:center; margin-top: 30px">
+        <h3>Diagnostico Médico</h3>
+    </div>
+    <!-- End Bread crumb -->
+    
+    <!-- Container fluid  -->
+    <div class="container-fluid" style="padding-left: 25%">
+        <!-- Start Page Content -->
+    
+        <!-- Container fluid  -->
+        <div class="container-fluid">
+            <!-- Start Page Content -->
+            <div class="row" style="justify-content: center">
+                <div class="col-lg-12 responsive-md-100">
+                        <form method="POST" action="">
+                            <div class="card-body" style="padding-top: 2%; padding-bottom: 2%; padding-left: 5%">
+                                @csrf
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-9" style="padding-top: 20px">
+                                            <div class="form-group row">
+                                                <label style="padding-top: 7px" class="control-label text-left col-md-2" for="nombre">Nombres:</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="nombre" name="nombre" class="form-control input-sm @error('nombre') is-invalid @enderror">
+                                                    @error('nombre')
+                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-md-9" style="padding-top: 20px">
+                                            <div class="form-group row">
+                                                <label style="padding-top: 7px" class="control-label text-left col-md-2" for="apellido">Apellidos:</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="apellido" name="apellido" class="form-control input-sm @error('apellido') is-invalid @enderror">
+                                                    @error('apellido')
+                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-9" style="padding-top: 20px">
+                                            <div class="form-group row">
+                                                <label style="padding-top: 7px" class="control-label text-left col-md-2" for="sexo">Sexo:</label>
+                                                <div class="col-md-7">
+                                                    <select name="sexo" id="sexo" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                        <option selected >--- Seleccionar Opción ---</option>
+                                                        <option value="1">Masculino</option>
+                                                        <option value="2">Femenino</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-9" style="padding-top: 20px">
+                                            <div class="form-group row">
+                                                <label style="padding-top: 7px" class="control-label text-left col-md-2" for="edad">Edad:</label>
+                                                <div class="col-md-7">
+                                                    <input type="number" min="1" pattern="^[0-9]+" id="edad" name="edad" class="form-control input-sm @error('edad') is-invalid @enderror">
+                                                    @error('edad')
+                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-9" style="padding-top: 20px">
+                                            <div class="form-group row">
+                                                <label style="padding-top: 7px" class="control-label text-left col-md-2" for="ciudad">Ciudad:</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="ciudad" name="ciudad" class="form-control input-sm @error('ciudad') is-invalid @enderror">
+                                                    @error('ciudad')
+                                                    <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div style="padding-left: 30%; padding-top: 30px">
+                                <button type="submit" class="btn btn-primary btn"> <i class="fa fa-check"></i> INICIAR</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Container fluid  -->
+    
+    <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+    
 </body>
 </html>
