@@ -9,8 +9,15 @@ class Sintoma(models.Model):
         return self.descripcion
 
 class Diagnostico(models.Model):
-    name = models.CharField(max_length=150)
-    email = models.CharField(max_length=150)
-    age = models.IntegerField()
-    genre = models.CharField(max_length=1)
-    diagnostic = models.CharField(max_length=150)
+    simbolo = models.CharField(max_length=50, unique=True)
+    resultado = models.CharField(max_length=150)
+    sintomas = models.ManyToManyField(Sintoma)
+
+    def __str__(self):
+        return self.resultado
+
+
+#name = models.CharField(max_length=150)
+#email = models.CharField(max_length=150)
+#age = models.IntegerField()
+#genre = models.CharField(max_length=1)

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app.models import Diagnostico
-from app.models import Sintoma
+from app.models import Sintoma,Diagnostico
 from django.contrib import messages
 import clips
 import os
@@ -8,7 +8,8 @@ from pathlib import Path
 
 
 def paginaIndex(request):
-
+    context = {}
+    context['diagnostico'] = ''
 
     rule = """
     (defrule my-rule
@@ -19,7 +20,10 @@ def paginaIndex(request):
     # env.build("reglas.clp")
     #for rule in env.rules():
     #    print(rule)
-
+    diagnostico1 = Diagnostico.objects.get(resultado='Diagnóstico prueba')
+    for asd in diagnostico1.sintomas.all():
+        print(asd.simbolo)
+    return render(request, 'sintomas.html', context)
     return procesarView(request)
 
 
