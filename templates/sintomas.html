@@ -46,7 +46,11 @@
                                                     <div class="col-md-12">
                                                         <select style="width: 50%" class="js-example-basic-multiple" name="sintomas[]" multiple="multiple">
                                                             {% for s in sintomas %}
-                                                                <option value='{{s.simbolo}}'>{{s.descripcion}}</option>
+                                                                {% if s.simbolo in selected %}
+                                                                    <option value='{{s.simbolo}}' selected>{{s.descripcion}}</option>
+                                                                {% else %}
+                                                                    <option value='{{s.simbolo}}'>{{s.descripcion}}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                     </div>
