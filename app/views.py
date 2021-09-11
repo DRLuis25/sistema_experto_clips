@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 def paginaIndex(request):
-    env = clips.Environment()
+
 
     rule = """
     (defrule my-rule
@@ -17,22 +17,32 @@ def paginaIndex(request):
       (printout t "My Rule fired!" crlf))
     """
     # env.build("reglas.clp")
-    env.load("reglas.clp")
-    for rule in env.rules():
-        print(rule)
+    #for rule in env.rules():
+    #    print(rule)
 
     return procesarView(request)
 
 
 def procesarView(request):
+    context = {}
+    context['diagnostico'] = ''
     ##Some code
     if request.method == 'POST':
+        env = clips.Environment()
+        env.load("reglas.clp")
+        env.reset()
         sint = request.POST.getlist('sintomas[]')
-        print(sint)
-        sintomas = Sintoma.objects.all()
-        print(sintomas)
-        return render(request, 'sintomas.html', {"sintomas": sintomas})
-    else:
-        sintomas = Sintoma.objects.all()
-        print(sintomas)
-        return render(request, 'sintomas.html', {"sintomas": sintomas})
+        print('Sintomas seleccionados: ', sint)
+        for sin in sint:
+            print('insertando sintoma: ',sin)
+            env.assert_string("("+sin+" S)")
+        env.run()
+        context['diagnostico'] = 'No se ha encontrado un diagnóstico para los síntomas seleccionados'
+        for fact in env.facts():
+            if fact.template.name == 'diagnostico':
+                print(fact[0])
+                context['diagnostico'] = 'El diagnóstico es: ' + fact[0]
+    context['sintomas'] = Sintoma.objects.all()
+    print('sintomas', context['sintomas'])
+    print('diagnostico: ', context['diagnostico'])
+    return render(request, 'sintomas.html', context)

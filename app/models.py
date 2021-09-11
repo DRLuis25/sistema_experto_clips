@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Sintoma(models.Model):
-    descripcion = models.CharField(max_length=100, unique=True)
-
+    simbolo = models.CharField(max_length=50, unique=True)
+    descripcion = models.CharField(max_length=100)
 
 class Diagnostico(models.Model):
     name = models.CharField(max_length=150)
