@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Sistema Experto</title>
+</head>
+<body style="background: lightblue">
+
+    <div style="text-align:center; margin-top: 30px">
+        <h3>Ingrese los sintomas</h3>
+    </div>
+    <!-- End Bread crumb -->
+
+    <!-- Container fluid  -->
+    <div class="container-fluid" style="padding-left: 25%">
+        <!-- Start Page Content -->
+
+        <!-- Container fluid  -->
+        <div class="container-fluid">
+            <!-- Start Page Content -->
+            <div class="row" style="justify-content: center">
+                <div class="col-lg-12 responsive-md-100">
+                        <form method="POST" action="{% url 'procesarView' %}">
+                            {% csrf_token %}
+                            <div class="card-body" style="padding-top: 2%; padding-bottom: 2%; padding-left: 5%">
+                                <div class="form-body">
+                                    <div class="row">
+
+                                        <div class="col-md-9" style="padding-top: 20px">
+                                            <div class="form-group row">
+                                                <label style="padding-top: 7px" class="control-label text-left col-md-12" for="sexo">
+                                                    Seleccione los sintomas que posea :
+                                                </label>
+                                                <p>
+                                                    <div class="col-md-12">
+                                                        <select style="width: 50%" class="js-example-basic-multiple" name="sintomas[]" multiple="multiple">
+                                                            {% for s in sintomas %}
+                                                                <option value='{{s.id}}'>{{s.descripcion}}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding-left: 30%; padding-top: 30px">
+                                <button type="submit" class="btn btn-primary btn"> <i class="fa fa-check"></i> INICIAR</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Container fluid  -->
+
+    <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({
+                placeholder: 'Select an option'
+            });
+        });
+    </script>
+</body>
+</html>
