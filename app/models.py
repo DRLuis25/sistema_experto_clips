@@ -8,6 +8,7 @@ class Sintoma(models.Model):
     def __str__(self):
         return self.descripcion
 
+
 class Diagnostico(models.Model):
     simbolo = models.CharField(max_length=50, unique=True)
     resultado = models.CharField(max_length=150)
@@ -17,7 +18,8 @@ class Diagnostico(models.Model):
         return self.resultado
 
 
-#name = models.CharField(max_length=150)
-#email = models.CharField(max_length=150)
-#age = models.IntegerField()
-#genre = models.CharField(max_length=1)
+class diagnosticoUsuario(models.Model):
+    name = models.CharField(max_length=150)
+    apellido = models.CharField(max_length=150)
+    age = models.IntegerField()
+    genre = models.CharField(max_length=1)
