@@ -70,9 +70,10 @@ def procesarView(request):
         for fact in env.facts():
             if fact.template.name == 'diagnostico':
                 print(fact[0])
-                context['diagnostico'] = 'El diagnóstico para el usuario '+context['nombre']+' es : ' + fact[0]
+                resultado = Diagnostico.objects.get(simbolo=fact[0])
+                context['diagnostico'] = 'El diagnóstico para el usuario '+context['nombre']+' es : ' + resultado.resultado
                 DiagnosticoUsuario(name=context['nombre'],apellido=context['apellido'],age=context['edad'],genre=context['sexo'],
-                                   diagnostic = fact[0]).save()
+                                   diagnostic = resultado.resultado).save()
                 env.reset()
 
     context['selected'] = sint
