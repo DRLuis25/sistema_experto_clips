@@ -18,8 +18,12 @@ class Diagnostico(models.Model):
         return self.resultado
 
 
-class diagnosticoUsuario(models.Model):
+class DiagnosticoUsuario(models.Model):
     name = models.CharField(max_length=150)
     apellido = models.CharField(max_length=150)
     age = models.IntegerField()
     genre = models.CharField(max_length=1)
+    diagnostic = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.name+' '+self.apellido

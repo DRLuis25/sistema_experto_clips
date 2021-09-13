@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sintoma,Diagnostico
+from .models import Sintoma,Diagnostico,DiagnosticoUsuario
 #Register your models here
 
 class SintomaAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ class DiagnosticoAdmin(admin.ModelAdmin):
 
 admin.site.register(Sintoma, SintomaAdmin)
 admin.site.register(Diagnostico, DiagnosticoAdmin)
+admin.site.register(DiagnosticoUsuario)
