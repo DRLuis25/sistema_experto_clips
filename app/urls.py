@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.paginaIndex),
     path('sintomas', views.procesarView, name='procesarView'),
+    path('about', views.about, name='about'),
 ]

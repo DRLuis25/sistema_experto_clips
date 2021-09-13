@@ -59,3 +59,6 @@ def procesarView(request):
     print('sintomas', context['sintomas'])
     print('diagnostico: ', context['diagnostico'])
     return render(request, 'sintomas.html', context)
+
+def about(request):
+    return render(request, 'about.html')
