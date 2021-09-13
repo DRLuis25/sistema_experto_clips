@@ -12,17 +12,7 @@ def paginaIndex(request):
     context = {}
     context['diagnostico'] = ''
 
-    rule = """
-    (defrule my-rule
-      (my-fact first-slot)
-      =>
-      (printout t "My Rule fired!" crlf))
-    """
-    # env.build("reglas.clp")
-    #for rule in env.rules():
-    #    print(rule)
-
-    #Llenado de Diagnosticos
+    # Llenado de Diagnosticos
     diagnosticos = Diagnostico.objects.all()
     cont = 1
     for d in diagnosticos.all():
@@ -31,17 +21,18 @@ def paginaIndex(request):
         sintomas = ""
         for asd in diagnostico1.sintomas.all():
             sintomas += "(" + asd.simbolo + " S)"
-        rule = "(defrule diagnostico"+str(cont)+" "+sintomas+" => (assert (diagnostico "+d.simbolo+")))"
+        rule = "(defrule diagnostico" + str(cont) + " " + sintomas + " => (assert (diagnostico " + d.simbolo + ")))"
         env.build(rule)
         cont = cont + 1
     env.reset()
-    #FIn llenado de Diagnosticos
+    # FIn llenado de Diagnosticos
 
-
-    context['sintomas'] = Sintoma.objects.all()
-    context['selected'] = ''
-    return render(request, 'sintomas.html', context)
-    return procesarView(request)
+    if request.method == 'POST':
+        context['sintomas'] = Sintoma.objects.all()
+        context['selected'] = ''
+        return render(request, 'sintomas.html', context)
+    else:
+        return render(request, 'index.html')
 
 
 def procesarView(request):
@@ -61,6 +52,8 @@ def procesarView(request):
             if fact.template.name == 'diagnostico':
                 print(fact[0])
                 context['diagnostico'] = 'El diagnóstico es: ' + fact[0]
+
+
     context['selected'] = sint
     context['sintomas'] = Sintoma.objects.all()
     print('sintomas', context['sintomas'])
