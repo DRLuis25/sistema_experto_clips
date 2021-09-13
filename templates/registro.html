@@ -65,29 +65,29 @@
                                 {% csrf_token %}
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-9" style="padding-top: 20px">
+                                        <div class="col-md-12" style="padding-top: 20px">
                                             <div class="form-group row">
-                                                <label style="padding-top: 7px; padding-right: 7px" class="control-label text-left col-md-2" for="nombre">Nombres:</label>
+                                                <label style="padding-top: 7px;" class="control-label text-left col-md-2" for="nombre">Nombres:</label>
                                                 <div class="col-md-7">
-                                                    <input type="text" id="nombre" name="nombre" class="form-control input-sm">
+                                                    <input style="margin-left: 15px" type="text" id="nombre" name="nombre" class="form-control input-sm">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-9" style="padding-top: 20px">
+                                        <div class="col-md-12" style="padding-top: 20px">
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="apellido">Apellidos:</label>
                                                 <div class="col-md-7">
-                                                    <input type="text" id="apellido" name="apellido" class="form-control input-sm">
+                                                    <input style="margin-left: 15px" type="text" id="apellido" name="apellido" class="form-control input-sm">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-9" style="padding-top: 20px">
+                                        <div class="col-md-12" style="padding-top: 20px">
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="sexo">Sexo:</label>
                                                 <div class="col-md-7">
-                                                    <select name="sexo" id="sexo" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                    <select style="margin-left: 15px" name="sexo" id="sexo" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                                         <option selected >--- Seleccionar Opción ---</option>
                                                         <option value="1">Masculino</option>
                                                         <option value="2">Femenino</option>
@@ -96,11 +96,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-9" style="padding-top: 20px">
+                                        <div class="col-md-12" style="padding-top: 20px">
                                             <div class="form-group row">
                                                 <label style="padding-top: 7px" class="control-label text-left col-md-2" for="edad">Edad:</label>
                                                 <div class="col-md-7">
-                                                    <input type="number" min="1" pattern="^[0-9]+" id="edad" name="edad" class="form-control input-sm ">
+                                                    <input style="margin-left: 15px" type="number" min="1" pattern="^[0-9]+" id="edad" name="edad" class="form-control input-sm ">
                                                 </div>
                                             </div>
                                         </div>
@@ -108,8 +108,8 @@
                                 </div>
                             </div>
 
-                            <div style="padding-left: 30%; padding-top: 30px">
-                                <button type="submit" class="btn btn-primary btn"> <i class="fa fa-check"></i> INICIAR</button>
+                            <div style="padding-left: 35%; padding-top: 30px">
+                                <button type="submit" class="btn btn-primary btn"> <i class="fa fa-check"></i> CONTINUAR</button>
                             </div>
                         </form>
                     </div>
