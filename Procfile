@@ -1,1 +1,1 @@
-web: gunicorn sistema_experto_clips.wsgi
+web: gunicorn app.wsgi
